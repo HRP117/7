@@ -47,7 +47,7 @@ begin
     end generate AEGEN;
     
     ADDGEN: for i in 0 to N-1 generate
-        FA: entity FullAdder
+        FA: entity work.FullAdder
             port map (
                 x => x(i),
                 y => y(i),

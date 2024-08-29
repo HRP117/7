@@ -34,7 +34,7 @@ architecture Structural of ALU_tb is
     
 begin
 
-    ALU: ALU
+    ALUG: ALU
         generic map (
             N => N
         )
@@ -49,8 +49,10 @@ begin
 
     stimuli: process
     begin
-        A <= (others=>'1');
-        B <= (others=>'0');
+        --A <= (others=>'1');
+        --B <= (others=>'0'); 
+        A <= "0101";
+        B <= "0011"; 
 
         -- Caso 000: Pasar A a F
         S <= "000";
