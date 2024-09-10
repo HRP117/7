@@ -4,12 +4,12 @@ use ieee.numeric_std.all;
 
 entity DFF is
     port(
-        D:      in std_logic;       --Data input
-        E:      in std_logic;       --Enable
-        R:      in std_logic;       --Reset
-        P:      in std_logic;       --Preset
-        clk:    in std_logic;       --Clock
-        Q:      out std_logic       --State
+        D:      in std_logic;       -- Data input
+        E:      in std_logic;       -- Enable
+        R:      in std_logic;       -- Reset
+        P:      in std_logic;       -- Preset
+        clk:    in std_logic;       -- Clock
+        Q:      out std_logic       -- State
     );
     
 end entity DFF;
@@ -19,11 +19,14 @@ architecture Behavioral of DFF is
 begin
     behavior: process (clk, R, P)
     begin
-        if (R'event and R = '1') then
+        --if (R'event and R = '1') then
+        if (R = '1') then
             Q <= '0';
-        elsif (P'event and R = '1') then
+        --elsif (P'event and R = '1') then
+        elsif (R = '1') then
             Q <= '1';
-        elsif (clk'event and R = '1' and E= '1') then
+        --elsif (clk'event and R = '1' and E= '1') then
+        elsif (E= '1') then
             Q <= D;
         end if;
     end process behavior;
